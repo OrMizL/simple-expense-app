@@ -9,7 +9,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter App',
+      title: 'My Expense Manager',
+      theme: ThemeData(
+        primarySwatch: Colors.teal,
+        accentColor: Colors.amber,
+      ),
       home: MyHomePage(),
     );
   }
@@ -60,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flutter App'),
+        title: Text('My Expense Manager'),
         actions: [
           IconButton(
             onPressed: () => _startAddNewTransaction(context),
