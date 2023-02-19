@@ -1,3 +1,12 @@
+# Simple Expense App
+This is a very simple expense app, inspired by Academind by Maximilian Schwarzmüller on Udemy.
+
+Release 1.0.0 includes all the basic stuff, a list of transactions, adding a new transaction, deleting an existing one, styling, inputs and more.
+
+The intention is to expand on the existing and add more functions and versitility.
+
+And now, back to flutter instructions..
+
 # simple_expense_app
 
 A new Flutter project.
