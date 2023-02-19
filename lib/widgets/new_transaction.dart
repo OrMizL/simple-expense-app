@@ -50,51 +50,54 @@ class _NewTransactionState extends State<NewTransaction> {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Container(
-        padding: EdgeInsets.all(10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            TextField(
-              decoration: InputDecoration(labelText: 'Title'),
-              // onChanged: (value) => titleInput = value,
-              controller: _titleController,
-              onSubmitted: (_) => _submitForm(),
-            ),
-            TextField(
-              decoration: InputDecoration(labelText: 'Amount'),
-              // onChanged: (value) => amountInput = value,
-              controller: _amountController,
-              keyboardType: TextInputType.numberWithOptions(decimal: true),
-              onSubmitted: (_) => _submitForm(),
-            ),
-            Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    _dateController == null
-                        ? 'No date chosen'
-                        : DateFormat.yMd().format(_dateController),
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus.unfocus(),
+      child: Card(
+        child: Container(
+          padding: EdgeInsets.all(10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              TextField(
+                decoration: InputDecoration(labelText: 'Title'),
+                // onChanged: (value) => titleInput = value,
+                controller: _titleController,
+                onSubmitted: (_) => _submitForm(),
+              ),
+              TextField(
+                decoration: InputDecoration(labelText: 'Amount'),
+                // onChanged: (value) => amountInput = value,
+                controller: _amountController,
+                keyboardType: TextInputType.numberWithOptions(decimal: true),
+                onSubmitted: (_) => _submitForm(),
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      _dateController == null
+                          ? 'No date chosen'
+                          : DateFormat.yMd().format(_dateController),
+                    ),
                   ),
-                ),
-                TextButton(
-                  onPressed: _showDatePicker,
-                  child: Text(
-                    'Pick a Date',
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                  TextButton(
+                    onPressed: _showDatePicker,
+                    child: Text(
+                      'Pick a Date',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
                   ),
-                ),
-              ],
-            ),
-            ElevatedButton(
-              child: Text('Add Transaction'),
-              onPressed: _submitForm,
-              style: TextButton.styleFrom(
-                  foregroundColor: Theme.of(context).textTheme.button.color,
-                  backgroundColor: Theme.of(context).colorScheme.primary),
-            )
-          ],
+                ],
+              ),
+              ElevatedButton(
+                child: Text('Add Transaction'),
+                onPressed: _submitForm,
+                style: TextButton.styleFrom(
+                    foregroundColor: Theme.of(context).textTheme.button.color,
+                    backgroundColor: Theme.of(context).colorScheme.primary),
+              )
+            ],
+          ),
         ),
       ),
     );
