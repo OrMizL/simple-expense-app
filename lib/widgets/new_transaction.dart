@@ -16,12 +16,18 @@ class _NewTransactionState extends State<NewTransaction> {
   DateTime _dateController;
 
   void _submitForm() {
-    if (_amountController.text.isEmpty || _titleController.text.isEmpty || _dateController == null) return;
+    if (_amountController.text.isEmpty ||
+        _titleController.text.isEmpty ||
+        _dateController == null) return;
     final enteredAmount = double.parse(_amountController.text);
 
     if (enteredAmount <= 0) return;
 
-    widget.addTransaction(_titleController.text, enteredAmount, _dateController);
+    widget.addTransaction(
+      _titleController.text,
+      enteredAmount,
+      _dateController,
+    );
 
     Navigator.of(context).pop();
   }
