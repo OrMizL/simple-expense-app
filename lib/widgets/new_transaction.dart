@@ -1,4 +1,8 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../widgets/adaptive_text_button.dart';
 import 'package:intl/intl.dart';
 
 class NewTransaction extends StatefulWidget {
@@ -86,13 +90,7 @@ class _NewTransactionState extends State<NewTransaction> {
                             : DateFormat.yMd().format(_dateController),
                       ),
                     ),
-                    TextButton(
-                      onPressed: _showDatePicker,
-                      child: Text(
-                        'Pick a Date',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                    ),
+                    AdaptiveTextButton('Pick a date', _showDatePicker),
                   ],
                 ),
                 ElevatedButton(
